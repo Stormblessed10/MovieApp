@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const containerStyle = {
   display: "flex",
-  alignItems: "center",
+  alignItems: "end",
   gap: "1.6rem",
 
   color: "#000"
@@ -13,10 +13,15 @@ const starContainerStyle = {
   listStyle: "none",
 }
 
-export default function StarRating({ maxRating = 10, color = "#eb6f4c", size = 24, className = "", defaultRating = 0 }) {
+export default function StarRating({ maxRating = 10, color = "#eb6f4c", size = 24, className = "", defaultRating = 0, onSetRating }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
   
+  function handleRating(rating) {
+    setRating(rating);
+    onSetRating(rating);
+  }
+
   const textStyle = {
     fontSize: `${size}px`,
     color,
@@ -28,7 +33,7 @@ export default function StarRating({ maxRating = 10, color = "#eb6f4c", size = 2
         <Star
           key={i}
           fill={tempRating ? tempRating >= i + 1 : rating >= i + 1}
-          onRate={() => setRating(tempRating)}
+          onRate={() => handleRating(tempRating)}
           onEnter={() => setTempRating(i + 1)}
           onLeave={() => setTempRating(0)}
           size={size}
