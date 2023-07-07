@@ -10,11 +10,11 @@ export function WatchedSummary({ watched }) {
     <div>
       <span>{watched.length} movies</span>
       <p>
-        <span>⭐️</span>
+        <span>IMDb:</span>
         <span>{avgImdbRating.toFixed(1).replace(".0", "")}</span>
       </p>
       <p>
-        <span>🌟</span>
+        <span>User:</span>
         <span>{avgUserRating.toFixed(1).replace(".0", "")}</span>
       </p>
       <span>{avgRuntime} min</span>

@@ -4,11 +4,11 @@ export function WatchedMovie({ movie, onDelete }) {
     <h3>{movie.Title}</h3>
     <div>
       <p>
-        <span>⭐️</span>
+        <span>IMDb:</span>
         <span>{movie.imdbRating}</span>
       </p>
       <p>
-        <span>🌟</span>
+        <span>User:</span>
         <span>{movie.userRating}</span>
       </p>
       <p>
