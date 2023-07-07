@@ -6,9 +6,8 @@ export function WatchedSummary({ watched }) {
   const avgRuntime = average(watched.map((movie) => movie.Runtime));
 
   return <div className="summary">
-    <h2>Movies you watched</h2>
     <div>
-      <span>{watched.length} movies</span>
+      <span>movies: {watched.length}</span>
       <p>
         <span>IMDb:</span>
         <span>{avgImdbRating.toFixed(1).replace(".0", "")}</span>
