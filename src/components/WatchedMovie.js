@@ -1,5 +1,5 @@
-export function WatchedMovie({ movie, onDelete }) {
-  return <li key={movie.imdbID}>
+export function WatchedMovie({ movie, onDelete, onMovie }) {
+  return <li key={movie.imdbID} onClick={() => onMovie(movie.imdbID)}>
     <img src={movie.Poster} alt={`${movie.Title} poster`} />
     <h3>{movie.Title}</h3>
     <div>
