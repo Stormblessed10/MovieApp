@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import { KEY } from "./App";
 import { Loader } from "./Loader";
+import { useKey } from "../hooks/useKey";
 
 export function Details({ onClose, selectedId, onAddMovie, watched }) {
   const [userRate, setUserRate] = useState("");
@@ -21,19 +22,7 @@ export function Details({ onClose, selectedId, onAddMovie, watched }) {
     onClose();
   }
 
-  useEffect(() => {
-    const callback = (e) => {
-      if (e.key !== "Escape") return;
-      onClose();
-      console.log('hehe');
-    };
-
-    document.addEventListener('keydown', callback);
-
-    return function () {
-      document.removeEventListener('keydown', callback);
-    };
-  }, [onClose]);
+  useKey("Escape", onClose);
 
   useEffect(() => {
     async function fetchDetails() {
